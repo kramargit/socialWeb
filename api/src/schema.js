@@ -7,9 +7,16 @@ module.exports = gql`
         id: ID!
         theme: String!
         content: String!
-        author: String!
+        author: User!
         createdAt: DateTime!
         updatedAt: DateTime!
+    }
+
+    type User {
+        id: ID!
+        username: String!
+        email: String!
+        notes: [Note!]!
     }
 
     type Query {
@@ -21,5 +28,7 @@ module.exports = gql`
         newNote(theme: String!, content: String!): Note!
         updateNote(id: ID!, theme: String!, content: String!): Note!
         deleteNote(id: ID!): Boolean!
+        signUp(username: String!, email: String!, password: String!): String!
+        signIn(username: String, email: String, password: String!): String!
     }
 `;
