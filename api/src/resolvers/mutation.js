@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { AuthenticationError,
@@ -6,22 +7,44 @@ const { AuthenticationError,
 require('dotenv').config();
 
 module.exports = {
-    newNote: async (parent, args, { models }) => {
+    newNote: async (parent, args, { models, user }) => {
+        if (!user) {
+            throw new AuthenticationError('You must be signed in to create a note');
+        }
+
         return await models.Note.create({
             theme: args.theme,
             content: args.content,
-            author: "Евгений"
+            author: mongoose.Types.ObjectId(user.id)
         });
     },
-    deleteNote: async (parent, { id }, { models }) => {
+    deleteNote: async (parent, { id }, { models, user }) => {
+        if (!user) {
+            throw new AuthenticationError('You must be signed in to create a note');
+        }
+
+        const note = await models.Note.findById(id);
+        if (note && String(note.author) !== user.id) {
+            throw new ForbiddenError("You don't have permissions to delete the note");
+        }
+
         try {
-            await models.Note.findOneAndRemove({ _id: id });
+            await note.remove();
             return true;
         } catch (err) {
             return false;
         }
     },
-    updateNote: async (parent, { id, theme, content }, { models }) => {
+    updateNote: async (parent, { id, theme, content }, { models, user }) => {
+        if (!user) {
+            throw new AuthenticationError('You must be signed in to create a note');
+        }
+
+        const note = await models.Note.findById(id);
+        if (note && String(note.author) !== user.id) {
+            throw new ForbiddenError("You don't have permissions to delete the note");
+        }
+
         return await models.Note.findOneAndUpdate(
             {
                 _id: id,
