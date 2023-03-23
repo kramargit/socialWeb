@@ -110,5 +110,45 @@ module.exports = {
 
         //создаем и возвращаем json web token
         return jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    },
+    toggleLike: async (parent, { id }, { models, user }) => {
+        if (!user) {
+            throw new AuthenticationError();
+        }
+
+        let noteCheck = await models.Note.findById(id);
+        const hasUser = noteCheck.likedBy.indexOf(user.id);
+
+        if (hasUser >= 0) {
+            return await models.Note.findByIdAndUpdate(
+                id,
+                {
+                    $pull: {
+                        likedBy: mongoose.Types.ObjectId(user.id)
+                    },
+                    $inc: {
+                        likeCount: -1
+                    }
+                },
+                {
+                    new: true
+                }
+            );
+        } else {
+            return await models.Note.findByIdAndUpdate(
+                id,
+                {
+                    $push: {
+                        likedBy: mongoose.Types.ObjectId(user.id)
+                    },
+                    $inc: {
+                        likeCount: 1
+                    }
+                },
+                {
+                    new: true
+                }
+            );
+        }
     }
 }

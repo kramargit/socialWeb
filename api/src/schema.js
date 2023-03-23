@@ -10,6 +10,8 @@ module.exports = gql`
         author: User!
         createdAt: DateTime!
         updatedAt: DateTime!
+        likeCount: Int!
+        likedBy: [User!]
     }
 
     type User {
@@ -17,12 +19,13 @@ module.exports = gql`
         username: String!
         email: String!
         notes: [Note!]!
+        likes: [Note!]!
     }
 
     type Query {
         notes: [Note!]!
         note(id: ID!): Note!
-        user(username: String!): User
+        user(username: String!): User!
         users: [User!]!
         me: User!
     }
@@ -33,5 +36,6 @@ module.exports = gql`
         deleteNote(id: ID!): Boolean!
         signUp(username: String!, email: String!, password: String!): String!
         signIn(username: String, email: String, password: String!): String!
+        toggleLike(id: ID!): Note!
     }
 `;

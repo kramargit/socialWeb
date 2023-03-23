@@ -11,7 +11,7 @@ module.exports = {
     users: async (parent, args, { models }) => {
         return await models.User.find({});
     },
-    user: async (parent, args, { models, user }) => {
+    me: async (parent, args, { models, user }) => {
         return await models.User.findById(user.id);
     }
 }

@@ -16,7 +16,17 @@ const noteSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
             required: true
-        }
+        },
+        likeCount: {
+            type: Number,
+            default: 0
+        },
+        likedBy: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
     },
     {
         // Присваиваем поля createdAt и updatedAt с типом данных
