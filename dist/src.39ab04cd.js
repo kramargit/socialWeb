@@ -98,7 +98,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({13:[function(require,module,exports) {
+})({12:[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -2815,7 +2815,7 @@ if ('development' !== "production") {
     }
   })();
 }
-},{}],8:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 'use strict';
 
 if ('development' === 'production') {
@@ -2823,7 +2823,7 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/react.development.js');
 }
-},{"./cjs/react.development.js":13}],18:[function(require,module,exports) {
+},{"./cjs/react.development.js":12}],18:[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -3453,7 +3453,7 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/scheduler.development.js');
 }
-},{"./cjs/scheduler.development.js":18}],12:[function(require,module,exports) {
+},{"./cjs/scheduler.development.js":18}],13:[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -33262,7 +33262,7 @@ if ('development' !== "production") {
     }
   })();
 }
-},{"react":8,"scheduler":16}],9:[function(require,module,exports) {
+},{"react":7,"scheduler":16}],8:[function(require,module,exports) {
 'use strict';
 
 function checkDCE() {
@@ -33298,7 +33298,7 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":12}],6:[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":13}],6:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -33324,7 +33324,7 @@ function App() {
 }
 
 exports.default = App;
-},{"react":8}],4:[function(require,module,exports) {
+},{"react":7}],4:[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');
@@ -33342,7 +33342,7 @@ var _App2 = _interopRequireDefault(_App);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
-},{"react":8,"react-dom":9,"./App":6}],20:[function(require,module,exports) {
+},{"react":7,"react-dom":8,"./App":6}],20:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -33371,7 +33371,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64914' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65408' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

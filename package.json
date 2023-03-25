@@ -2,9 +2,14 @@
   "name": "react-ui",
   "version": "1.0.0",
   "description": "frontand для приложения rn_admin",
-  "main": "src/index.js",
+  "main": "src/App.js",
   "scripts": {
-    "start": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "final": "parcel final/index.html",
+    "deploy:src": "parcel build src/index.html --public-url ./",
+    "deploy:final": "parcel build final/index.html --public-url ./",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -17,10 +22,35 @@
   },
   "homepage": "https://github.com/kramargit/socialWeb#readme",
   "dependencies": {
+    "@apollo/client": "^3.7.10",
+    "@types/react": "^18.0.29",
+    "apollo-link-context": "^1.0.20",
+    "date-fns": "^2.29.3",
+    "graphql": "^15.8.0",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.6",
+    "react-router-dom": "^6.9.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.8.1"
+    "@testing-library/cypress": "^9.0.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-styled-components": "^2.0.7",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "cypress": "^12.8.1",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "graphql-request": "^5.2.0",
+    "parcel-bundler": "^1.8.1",
+    "prettier": "^2.8.7",
+    "test-data-bot": "^0.8.0"
   }
 }
