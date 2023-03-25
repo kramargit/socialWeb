@@ -1,0 +1,26 @@
+{
+  "name": "react-ui",
+  "version": "1.0.0",
+  "description": "frontand для приложения rn_admin",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kramargit/socialWeb.git"
+  },
+  "author": "Крамар Евгений Александрович",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kramargit/socialWeb/issues"
+  },
+  "homepage": "https://github.com/kramargit/socialWeb#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.8.1"
+  }
+}
