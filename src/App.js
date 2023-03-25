@@ -1,12 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
-function App() {
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import Pages from './pages';
+
+const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <React.Fragment>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <aside>
+          <Navigation />
+        </aside>
+        <main><Pages /></main>
+      </main>
+      <footer></footer>
+    </React.Fragment>
   );
-}
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
