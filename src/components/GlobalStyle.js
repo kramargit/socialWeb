@@ -17,8 +17,8 @@ export default createGlobalStyle`
     body {
         font-family: -apple-system, BlinkMacSystemfont, 'Segoe UI', Roboto,
             Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-        background-color: #fff;
         line-height: 1.4;
+        overflow-y: hidden;
     }
 
     a:link,
@@ -43,5 +43,7 @@ export default createGlobalStyle`
     #root {
         display: flex;
         flex-wrap: wrap;
+        position: relative;
+        height: 100vh;
     }
 `;
